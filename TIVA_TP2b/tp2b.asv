@@ -42,8 +42,8 @@ Ift = fft2(double(I));
 L = 32;
 K = 0.03;
 W = conj(H)./(abs(H).*2 + K);
-W_ks = conj(H)./(abs(H).*2 + 0.00001);
-W_kh = conj(H)./(abs(H).*2 + 5);
+W_ks = conj(H)./(abs(H).*2 + K);
+W_kh
 DeblurredImage = deblurr(K, L, I);
 
 % Plotting deblurred image
@@ -65,8 +65,6 @@ figure(3)
 plot(profile);
 title('Profil longitudinal de W pour une valeur adaptée de K');
 colormap('gray');
-print(3,'results/b34.jpg','-djpeg');
-
 
 % Inverse FT of W
 w = real(ifft2(W));
@@ -79,22 +77,6 @@ profile_w = w(1, 1:end);
 figure(5)
 plot(profile_w);
 title('Profil de la transformée inverse (Valeurs optimales)')
-print(5,'results/b351.jpg','-djpeg');
-
-
-% Profile of w_ks and w_kh
-w_ks = real(ifft2(W_ks));
-w_kh = real(ifft2(W_kh));
-profile_w_ks = w_ks(1, 1:end);
-profile_w_kh = w_kh(1, 1:end);
 
 figure(6)
-subplot(1, 2, 1)
-plot(profile_w_ks);
-title('Small value of K');
-subplot(1, 2, 2)
-plot(profile_w_kh);
-title('High value of K');
-print(6,'results/b352.jpg','-djpeg');
-
 

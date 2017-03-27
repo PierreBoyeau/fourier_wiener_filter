@@ -121,7 +121,7 @@ imagesc(I_filter4);
 axis image off;
 colormap('gray');
 title('f=0.4');
-print(6,'results/152.jpg','-djpeg');
+print(7,'results/152.jpg','-djpeg');
 
 
 %% Aliasing
