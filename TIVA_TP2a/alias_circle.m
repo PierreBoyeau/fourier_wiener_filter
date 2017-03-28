@@ -1,3 +1,4 @@
+%% 
 N=1800; %% set N to 3600, 1800 or 900
 x=((1:N)-(N/2))./N;
 [X,Y]=meshgrid(x,x);
@@ -17,3 +18,12 @@ for k=6:6:120,
     pause();     %Met l'exécution du code en pause jusqu'à ce qu'on
                  % presse la barre d'espacement
 end 
+       
+%%
+k = 30;
+ZZ=Z((k:k:N),(k:k:N));
+fb = fourier_zoom(ZZ, k);
+figure(1)    %Ouvre la figure 1
+imagesc(fb); %Affiche l'image
+axis equal;  %Contraint les axes à être orthonormés
+axis off;    %Efface les axes

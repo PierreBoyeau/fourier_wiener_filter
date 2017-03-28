@@ -141,5 +141,21 @@ for j=2:10
     pause(1);
 end
 
+figure(19)
+subplot(1,3,1)
+imagesc(Irgb_b);
+axis image off;
+title('Original image');
+subplot(1,3,2)
+imagesc(subsample3(Irgb_b, 3));
+axis image off;
+title('T = 3');
+subplot(1,3,3)
+imagesc(subsample3(Irgb_b, 6));
+axis image off;
+title('T = 6');
+print(19,'results/22.jpg','-djpeg');
+
+
 %% Théorème d'échantillonnage (bonus)
 
